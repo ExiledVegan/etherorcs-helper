@@ -1,12 +1,12 @@
 {
 
   "manifest_version": 2,
-  "name": "EtherOrcs Companion",
+  "name": "EtherOrcs Helper",
   "version": "0.1",
 
   "description": "Play EtherOrcs like a true orc champion.",
 
-  "homepage_url": "https://github.com/ExiledVegan/etherorcs-companion-firefox",
+  "homepage_url": "https://github.com/ExiledVegan/etherorcs-helper",
 
   "permissions": [
     "activeTab"
