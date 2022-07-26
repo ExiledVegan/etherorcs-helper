@@ -1,4 +1,4 @@
-<h2>EtherOrcs Companion - Firefox Extension</h2>
+<h2>EtherOrcs Helper - Firefox Extension</h2>
 <h3>Chrome Extension: https://github.com/blumentopf-eth/etherorcs-helper </h3>
 <hr>
 <p>The purpose of this project is to further improve the EtherOrcs experience with various tweaks and fixes.</p>
