@@ -1,25 +1,28 @@
 {
-  "name": "EtherOrcs Helper",
-  "description": "Made by Blumentopf",
-  "version": "1.0",
-  "manifest_version": 3,
+
+  "manifest_version": 2,
+  "name": "EtherOrcs Companion",
+  "version": "0.1",
+
+  "description": "Play EtherOrcs like a true orc champion.",
+
+  "homepage_url": "https://github.com/ExiledVegan/etherorcs-companion-firefox",
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "icons": {
+    "48": "icons/logo.svg",
+    "96": "icons/logo.svg"
+  },
+
   "content_scripts": [
     {
-      "matches": ["https://*.etherorcs.com/*"],
-      "js": ["vendor/jquery-3.6.0.min.js","settings.js","content_main.js"],
-	  "css": ["css/main.css"]
+      "matches": ["*://dungeons.etherorcs.com/*"],
+      "js": ["js/index.js", "js/jquery-3.6.0.min.js", "js/settings.js", "js/loadout.js"],
+      "css": ["css/index.css", "css/loadout.css"]
     }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [ "/images/logo48.png", "test2.png" ],
-      "matches": ["https://*.etherorcs.com/*"]
-    }
-  ],
-  "icons": {
-    "16": "/images/logo16.png",
-    "32": "/images/logo32.png",
-    "48": "/images/logo48.png",
-    "128": "/images/logo128.png"
-  }
+  ]
+
 }

@@ -1,0 +1,585 @@
+/* Disable shadow effect in dungeons */
+.tile-wrapper .player::after {
+    background: none;
+}
+
+* {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+}
+
+.enemies .enemy .enemy-image.attacked {
+    animation: attacked .1s;
+    animation-delay: 0s;
+}
+
+.action-value-animation .action-value {
+    animation: action-value-animate .1s linear forwards;
+    animation-delay: 0s;
+}
+
+.tile-wrapper .player.move-left {
+    animation: walk-left .1s;
+}
+
+.tile-wrapper .player.move-right {
+    animation: walk-right .1s;
+}
+
+.tile-wrapper .player.move-up {
+    animation: walk-up .1s;
+}
+
+.tile-wrapper .player.move-down {
+    animation: walk-down .1s;
+}
+
+.tile-wrapper .player.move-right .player-character,
+.tile-wrapper .player.move-left .player-character,
+.tile-wrapper .player.move-up .player-character,
+.tile-wrapper .player.move-down .player-character {
+    -webkit-animation:bounce-1 .1s;
+    animation:bounce-1 .1s;
+}
+
+.tile-wrapper .player .player-shadow {
+    -webkit-animation:shadow-animation .1s forwards;
+    animation:shadow-animation .1s forwards;
+}
+
+.tile-wrapper .encounter-visit {
+    -webkit-animation:encounter-visit .1s forwards;
+    animation:encounter-visit .1s forwards;
+}
+
+.intro-scene .logo-sub .line-animate {
+    transition: width .1s ease-in-out;
+    -webkit-animation: line-animate .1s forwards;
+    animation: line-animate .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.intro-scene .logo-sub .heading {
+    -webkit-animation: fade-in .1s forwards;
+    animation: fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.intro-scene .intro-menu {
+    -webkit-animation: fade-in-blur .1s forwards;
+    animation: fade-in-blur .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.intro-scene .intro-story div:first-child {
+    -webkit-animation: fade-in-out .1s forwards;
+    animation: fade-in-out .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.intro-scene .intro-story div:nth-child(2) {
+    -webkit-animation: fade-in-out .1s forwards;
+    animation: fade-in-out .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.intro-scene .intro-story div:nth-child(3) {
+    -webkit-animation: fade-in-out .1s forwards;
+    animation: fade-in-out .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.intro-scene .intro-story div:nth-child(4) {
+    -webkit-animation: fade-in-out .1s forwards;
+    animation: fade-in-out .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.intro-scene .intro-story .intro-story-skip {
+    -webkit-animation: fade-in .1s forwards;
+    animation: fade-in .1s forwards;
+}
+
+.map-intro-scene .title {
+    opacity: 0;
+    -webkit-animation: fade-in .1s forwards;
+    animation: fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.map-intro-scene .text {
+    -webkit-animation: fade-in .1s forwards;
+    animation: fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.map-intro-scene .text .heading:first-child {
+    -webkit-animation: intro-text-fade-in .1s forwards;
+    animation: intro-text-fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.map-intro-scene .text .heading:nth-child(2) {
+    -webkit-animation: intro-text-fade-in .1s forwards;
+    animation: intro-text-fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.map-intro-scene .text .heading:nth-child(3) {
+    -webkit-animation: intro-text-fade-in .1s forwards;
+    animation: intro-text-fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.map-intro-scene .text .heading:nth-child(4) {
+    -webkit-animation: intro-text-fade-in .1s forwards;
+    animation: intro-text-fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.map-intro-scene .text .heading:nth-child(5) {
+    -webkit-animation: intro-text-fade-in .1s forwards;
+    animation: intro-text-fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.map-scene {
+    -webkit-animation: fade-in .1s;
+    animation: fade-in .1s
+}
+
+.tile-wrapper .encounter-visit {
+    -webkit-animation: encounter-visit .1s forwards;
+    animation: encounter-visit .1s forwards
+}
+
+.map-tile.selected:before {
+    -webkit-animation: fade-out .1s forwards;
+    animation: fade-out .1s forwards;
+}
+
+.map-tile.fov {
+    -webkit-animation: fade-in-brightness .1s forwards;
+    animation: fade-in-brightness .1s forwards
+}
+
+.encounter-scene.show {
+    -webkit-animation: grow .1s forwards;
+    animation: grow .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.encounter-scene.hide {
+    -webkit-animation: grow-out .1s forwards;
+    animation: grow-out .1s forwards
+}
+
+.encounter-scene .character-frame.attacking {
+    -webkit-animation: character-attack .1s forwards;
+    animation: character-attack .1s forwards;
+}
+
+.character-bar .character-frame .attacked-overlay {
+    -webkit-animation: attacked-overlay-animate .1s;
+    animation: attacked-overlay-animate .1s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.character-bar .character-frame .buffed-overlay {
+    -webkit-animation: buffed-overlay-animate .1s;
+    animation: buffed-overlay-animate .1s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.action-value-animation .action-value {
+    -webkit-animation: action-value-animate .1s linear forwards;
+    animation: action-value-animate .1s linear forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.status-effect-tick-animation .action-value {
+    -webkit-animation: status-effect-tick-animate .1s linear forwards;
+    animation: status-effect-tick-animate .1s linear forwards;
+}
+
+.enemies .enemy.attacking {
+    -webkit-animation: enemy-attack .1s forwards;
+    animation: enemy-attack .1s forwards;
+}
+
+.enemies .enemy .enemy-image.attacked {
+    -webkit-animation: attacked .1s;
+    animation: attacked .1s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.enemies .enemy .enemy-image.buffed {
+    -webkit-animation: buffed-enemy .1s;
+    animation: buffed-enemy .1s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.game-over .col {
+    -webkit-animation: drop .1s cubic-bezier(.34, .03, .76, .94) 0s;
+    animation: drop .1s cubic-bezier(.34, .03, .76, .94) 0s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+.game-over .details .title {
+    -webkit-animation: fade-in .1s forwards;
+    animation: fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.game-over .details .sub-title {
+    -webkit-animation: fade-in .1s forwards;
+    animation: fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.game-over .details .scoreboard {
+    -webkit-animation: fade-in .1s forwards;
+    animation: fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .details .back-button--position {
+    -webkit-animation: fade-in .1s forwards;
+    animation: fade-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .details .chests-reward .chest-animate-in {
+    -webkit-animation: chest-animate-in .1s forwards;
+    animation: chest-animate-in .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+.game-over .details .chests-reward .chest-animate-in:nth-child(2) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.game-over .details .chests-reward .chest-animate-in:nth-child(3) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.game-over .details .chests-reward .chest-animate-in:nth-child(4) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.game-over .col:nth-child(2) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(3) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(4) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(5) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(6) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(7) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(8) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(9) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(10) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(11) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(12) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(13) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(14) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(15) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(16) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(17) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(18) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(19) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(20) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(21) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(22) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(23) {
+    -webkit-animation-delay: .55s;
+    animation-delay: .55s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(24) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(25) {
+    -webkit-animation-delay: .33s;
+    animation-delay: .33s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(26) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.game-over .col:nth-child(27) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(28) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(29) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s;
+}
+
+.game-over .col:nth-child(30) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: .1s;
+    animation-duration: .1s
+}
+
+.fade-out-fast {
+    -webkit-animation: fade-out .1s forwards;
+    animation: fade-out .1s forwards
+}
+
+.fade-out {
+    -webkit-animation: fade-out .1s forwards;
+    animation: fade-out .1s forwards
+}
+
+.fade-out-slow {
+    -webkit-animation: fade-out .1s forwards;
+    animation: fade-out .1s forwards
+}
+
+.fade-in-fast {
+    -webkit-animation: fade-in .1s;
+    animation: fade-in .1s
+}
+
+.fade-in {
+    -webkit-animation: fade-in .1s;
+    animation: fade-in .1s
+}
+
+.fade-in-slow {
+    -webkit-animation: fade-in .1s;
+    animation: fade-in .1s
+}
+
+.fade-in-blur-fast {
+    -webkit-animation: fade-in-blur .1s;
+    animation: fade-in-blur .1s
+}
+
+.fade-in-blur {
+    -webkit-animation: fade-in-blur .1s;
+    animation: fade-in-blur .1s
+}
+
+.fade-in-blur-slow {
+    -webkit-animation: fade-in-blur .1s;
+    animation: fade-in-blur .1s
+}
+
+.MuiBackdrop-root.css-919eu4 {
+    transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
+}
+
+.typed-fade-out {
+    opacity: 0;
+    transition: opacity .1s;
+    -webkit-animation: 0;
+    animation: 0
+}
+
+.dungeon-inner {
+    transition: -webkit-transform .1s;
+    transition: transform .1s;
+}
+
+.encounter-scene {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.encounter-scene.show {
+    -webkit-animation: grow .1s forwards;
+    animation: grow .1s forwards;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s
+}
+
+.encounter-scene.hide {
+    -webkit-animation: grow-out .1s forwards;
+    animation: grow-out .1s forwards
+}
