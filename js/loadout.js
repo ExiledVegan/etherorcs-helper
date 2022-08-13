@@ -37,19 +37,19 @@ async function loadout() {
 
         await sleep(1500);
 
-        if (cfgitem.ar > 1) $(".inventory button").eq(cfgitem.ar - 1).click(); //AR
+        if (cfgitem.ar >= 1) $(".inventory button").eq(cfgitem.ar - 1).click(); //AR
 
         itemSlot.eq(1).click();
 
         await sleep(500);
 
-        if (cfgitem.mh > 1) $(".inventory button").eq(cfgitem.mh - 1).click(); //MH
+        if (cfgitem.mh >= 1) $(".inventory button").eq(cfgitem.mh - 1).click(); //MH
 
         itemSlot.eq(2).click();
 
         await sleep(500);
 
-        if (cfgitem.oh > 1) {
+        if (cfgitem.oh >= 1) {
             $(".inventory button").eq(cfgitem.oh - 1).click(); //OH
             await sleep(500);
         }
