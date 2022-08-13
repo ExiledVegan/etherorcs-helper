@@ -99,4 +99,39 @@ $(document).ready(function () {
             }
         });
     }
+
+    // Instant animations inline script
+    let script = '' +
+        'function waitForElm(selector) {\n' +
+        '    return new Promise(resolve => {\n' +
+        '        if (document.querySelector(selector)) {\n' +
+        '            return resolve(document.querySelector(selector));\n' +
+        '        }\n' +
+        '\n' +
+        '        const observer = new MutationObserver(mutations => {\n' +
+        '            if (document.querySelector(selector)) {\n' +
+        '                resolve(document.querySelector(selector));\n' +
+        '                observer.disconnect();\n' +
+        '            }\n' +
+        '        });\n' +
+        '\n' +
+        '        observer.observe(document.body, {\n' +
+        '            childList: true,\n' +
+        '            subtree: true\n' +
+        '        });\n' +
+        '    });\n' +
+        '}\n' +
+        '\n' +
+        'waitForElm(\'.player\').then((elm) => {\n' +
+        '    console.log(\'Element is ready\');\n' +
+        '\n' +
+        '    // Remove all timeouts thus making animations instant\n' +
+        '    window.setTimeout = ((original) =>\n' +
+        '            (codeOrFunc, delay, ...args) =>\n' +
+        '                original(codeOrFunc, 0, ...args)\n' +
+        '    )(window.setTimeout);\n' +
+        '});';
+    let scriptEl = document.createElement('script');
+    scriptEl.textContent = script;
+    document.head.appendChild(scriptEl);
 });
