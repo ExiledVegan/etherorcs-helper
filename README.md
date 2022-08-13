@@ -4,6 +4,7 @@
 <p>The purpose of this project is to further improve the EtherOrcs experience with various tweaks and fixes.</p>
 <p>In the current stage all the improvements are aimed towards the dungeons subdomain. Future versions will aim to improve
 other parts of the website as well, such as the town and game terminal.</p>
+<p>Note: You need to refresh the page after finishing a dungeon run</p>
 <p>Features:</p>
 <ul>
     <li>Instant loading of all the in-game animations</li>
