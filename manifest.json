@@ -19,7 +19,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://dungeons.etherorcs.com/*"],
+      "matches": ["*://*.etherorcs.com/*"],
       "js": ["js/index.js", "js/jquery-3.6.0.min.js", "js/settings.js", "js/loadout.js"],
       "css": ["css/index.css", "css/loadout.css"]
     }
