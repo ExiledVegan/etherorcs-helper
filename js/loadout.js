@@ -3,59 +3,153 @@ function sleep(ms) {
 }
 
 async function loadout() {
+
     $(".character-select-wrapper .select-map-button").click();
     await sleep(1500);
-    $(".character-selector .character").each(function () {
-        const orcNumber = $(this).find(".MuiListItemText-primary").text().replace(/\D/g, '');
-        const orcLevel = parseInt($(this).find(".MuiListItemText-secondary").text().replace(/\D/g, '')) - ($(this).hasClass("disabled") ? 100000 : 0);
-        let race = "orc";
-        if (orcNumber > 5050) race = "shaman";
-        if (orcNumber > 8050) race = "ogre";
-        if (orcNumber > 11050) race = "rogue";
-        if (orcNumber > 14050) race = "mage";
 
-        if (!$(this).hasClass("race_" + race)) $(this).addClass("race_" + race);
-        $(this).attr("data-sort", orcLevel);
-        $(this).attr("data-id", orcNumber);
-    });
+    async function onGot(loadout) {
+        console.log("loadout: ", loadout)
 
-    let cfg = cfg_loadout.solo;
-    if ($(".character-select-wrapper button[aria-pressed='true']").attr("value") == "party") {
-        cfg = cfg_loadout.party;
-    }
+        if (!loadout.cfg_loadout.solo) loadout.cfg_loadout.solo = cfg_loadout.solo;
+        if (!loadout.cfg_loadout.party) loadout.cfg_loadout.party = cfg_loadout.party;
 
-    for (let i = 0; i < cfg.length; i++) {
-        let cfgitem = cfg[i];
+        // Create "Save Loadout" button
+        if (!$(".save-loadout").length) {
+            $(".character-select-dialog .toolbar").append("<button class=\"MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root save-loadout console-link-button css-onqdri\" type=\"button\"><b>X</b> Save Loadout<span class=\"MuiTouchRipple-root css-w0pj6f\"></span></button>")
 
-        if (cfgitem.id < 1) continue;
+            // Save loadout method
+            $(document).on('click', '.save-loadout', async function () {
+                if ($(".character-select-wrapper button[aria-pressed='true']").attr("value") == "party") {
 
-        $(".character-selector-inner .character[data-id='" + cfgitem.id + "'] button").click();
+                } else {
+                    let new_solo = [];
+                    $(".character-selector-inner .character").each(function (index, element) {
+                        let character = {};
 
-        let itemSlot = $(".character-overview .item-slot");
+                        if ($(element).hasClass("selected")) {
+                            if (!$(element).hasClass("active")) {
+                                $(".character.active").removeClass("active");
+                                $(element).addClass("active");
+                            }
 
-        itemSlot.eq(0).click();
+                            character.id = parseInt($(element).attr("data-id"), 10);
 
-        await sleep(1500);
+                            let ar, mh, oh;
+                            $(".inventory .item").each(function (i, e) {
+                                if ($(e).find(".equipped").length !== 0) {
+                                    let type = $(e).find(".type").html();
+                                    let src = $(e).find("img").attr("src");
 
-        if (cfgitem.ar >= 1) $(".inventory button").eq(cfgitem.ar - 1).click(); //AR
+                                    $(".item-slot").each(function (ii, ee) {
+                                        let typeSlot = $(ee).find(".type").html();
+                                        let srcSlot = $(ee).find("img").attr("src");
 
-        itemSlot.eq(1).click();
+                                        if (type == typeSlot && src == srcSlot) {
+                                            switch (type) {
+                                                case 'AR':
+                                                    ar = i + 1;
+                                                    break;
+                                                case 'MH':
+                                                    mh = i + 1;
+                                                    break;
+                                                case 'OH':
+                                                    oh = i + 1;
+                                                    break;
+                                            }
+                                        }
 
-        await sleep(500);
+                                    })
+                                }
+                            });
 
-        if (cfgitem.mh >= 1) $(".inventory button").eq(cfgitem.mh - 1).click(); //MH
+                            character.ar = ar;
+                            character.mh = mh;
+                            character.oh = oh;
 
-        itemSlot.eq(2).click();
+                            new_solo.push(character);
+                        }
+                    });
 
-        await sleep(500);
+                    loadout.cfg_loadout.solo = new_solo;
+                }
 
-        if (cfgitem.oh >= 1) {
-            $(".inventory button").eq(cfgitem.oh - 1).click(); //OH
-            await sleep(500);
+                console.log("new loadout: ", loadout.cfg_loadout)
+
+                browser.storage.sync.set({
+                    cfg_loadout: loadout.cfg_loadout
+                });
+
+                console.log("saved loadout!")
+
+                $(".save-loadout").html("<b>X</b> Save Loadout - Success!<span class=\"MuiTouchRipple-root css-w0pj6f\"></span>");
+
+                await sleep(2000);
+
+                $(".save-loadout").html("<b>X</b> Save Loadout<span class=\"MuiTouchRipple-root css-w0pj6f\"></span>");
+            });
+
+            $(".character-selector .character").each(function () {
+                const orcNumber = $(this).find(".MuiListItemText-primary").text().replace(/\D/g, '');
+                const orcLevel = parseInt($(this).find(".MuiListItemText-secondary").text().replace(/\D/g, '')) - ($(this).hasClass("disabled") ? 100000 : 0);
+                let race = "orc";
+                if (orcNumber > 5050) race = "shaman";
+                if (orcNumber > 8050) race = "ogre";
+                if (orcNumber > 11050) race = "rogue";
+                if (orcNumber > 14050) race = "mage";
+
+                if (!$(this).hasClass("race_" + race)) $(this).addClass("race_" + race);
+                $(this).attr("data-sort", orcLevel);
+                $(this).attr("data-id", orcNumber);
+            });
+
+            let cfg = loadout.cfg_loadout.solo;
+            if ($(".character-select-wrapper button[aria-pressed='true']").attr("value") == "party") {
+                cfg = loadout.cfg_loadout.party;
+            }
+
+            for (let i = 0; i < cfg.length; i++) {
+                let cfgitem = cfg[i];
+
+                if (cfgitem.id < 1) continue;
+
+                $(".character-selector-inner .character[data-id='" + cfgitem.id + "'] button").click();
+
+                let itemSlot = $(".character-overview .item-slot");
+
+                itemSlot.eq(0).click();
+
+                await sleep(1500);
+
+                if (cfgitem.ar >= 1) $(".inventory button").eq(cfgitem.ar - 1).click(); //AR
+
+                itemSlot.eq(1).click();
+
+                await sleep(500);
+
+                if (cfgitem.mh >= 1) $(".inventory button").eq(cfgitem.mh - 1).click(); //MH
+
+                itemSlot.eq(2).click();
+
+                await sleep(500);
+
+                if (cfgitem.oh >= 1) {
+                    $(".inventory button").eq(cfgitem.oh - 1).click(); //OH
+                    await sleep(500);
+                }
+            }
+
+            $(".character-selector-inner").prepend($(".character-selector-inner .character.selected"));
         }
     }
 
-    $(".character-selector-inner").prepend($(".character-selector-inner .character.selected"));
+    // Error handler
+    function onError(error) {
+        console.log(`Error: ${error}`);
+    }
+
+    // Loadout saved in local storage
+    let new_loadout = browser.storage.sync.get("cfg_loadout");
+    new_loadout.then(onGot, onError);
 }
 
 $(document).ready(function () {
