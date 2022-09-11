@@ -3,7 +3,7 @@ function sleep(ms) {
 }
 
 async function loadout() {
-    $(".character-select-wrapper .select-map-button").click();
+    $(".character-select-wrapper .select-characters-button button").click();
     await sleep(1500);
     $(".character-selector .character").each(function () {
         const orcNumber = $(this).find(".MuiListItemText-primary").text().replace(/\D/g, '');
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
     if ($(".dungeon-crawler").length > 0) {
         $(document).on('DOMSubtreeModified', function () {
-            let mapBtn = $(".character-select-wrapper .select-map-button");
+            let mapBtn = $(".character-select-wrapper .select-characters-button");
             if (mapBtn.length > 0 && $("#loadout").length < 1) {
                 mapBtn.after('<div id="loadout">Use Loadout</div>');
                 $("#loadout").click(function () {
